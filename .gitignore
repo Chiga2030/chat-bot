@@ -1,0 +1,8 @@
+.env
+.DS_Store
+.cache/
+dist/
+node_modules/
+build/
+mockups-and-other/
+pixel-perfect/
