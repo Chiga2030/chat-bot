@@ -5,7 +5,7 @@ const path = {
 		script: 'build/js/',
 	},
 	src: {
-		html: 'source/*.html',
+		html: 'source/**/*.html',
 		style: 'source/**/*.css',
 		script: 'source/**/*.js',
 	}
@@ -32,7 +32,7 @@ env ({
 gulp.task('build-html', () => {
     gulp.src(path.src.html)
         .pipe(rigger())
-        .pipe(gulp.dest(path.build.html));
+        .pipe(gulp.dest(path.build.html))
 });
 
 /* сборка стилей в один файл style-min.css */
