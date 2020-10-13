@@ -1,0 +1,20 @@
+html,
+body {
+	margin: 0;
+}
+
+.body {
+	background: #282828;
+	font-family: Halant;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 58px;
+	line-height: 91px;
+	color: #FFFFFF;
+}
+
+.content {
+	max-width: 700px;
+	margin: auto;
+	background: #69c;
+}

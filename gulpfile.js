@@ -36,7 +36,7 @@ env ({
 gulp.task('build-html', () => {
     gulp.src(path.src.html)
         .pipe(rigger())
-        .pipe(gulp.dest(path.build.html))
+        .pipe(gulp.dest(path.build.html));
 });
 
 /* сборка стилей в один файл style-min.css */
