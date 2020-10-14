@@ -5,16 +5,17 @@ body {
 
 .body {
 	background: #282828;
-	font-family: Halant;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 58px;
-	line-height: 91px;
-	color: #FFFFFF;
 }
 
 .content {
 	max-width: 700px;
 	margin: auto;
-	background: #69c;
+}
+
+.title {
+	font-family: robotoMono;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 58px;
+	color: #FFF;
 }
