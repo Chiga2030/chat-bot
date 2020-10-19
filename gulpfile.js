@@ -6,7 +6,8 @@ const path = {
 		script: 'build/js/',
 	},
 	src: {
-		html: 'source/index.html',
+		indexHtml: 'source/index.html',
+		html: 'source/**/*.html',
 		style: 'source/style/*.css',
 		fonts: 'source/fonts/',
 		script: 'source/**/*.js',
@@ -34,7 +35,7 @@ env ({
 
 /* сборка html */
 gulp.task('build-html', () => {
-    gulp.src(path.src.html)
+    gulp.src(path.src.indexHtml)
         .pipe(rigger())
         .pipe(gulp.dest(path.build.html));
 });
