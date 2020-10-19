@@ -60,5 +60,10 @@
 }
 
 .chat-window__text-buble-button {
+	border: 0;
 	margin-left: 8px;
+	width: 3em;
+	height: 2.7em;
+	background: center / cover no-repeat url(../img/submit-arrow.svg);
+	outline:none;
 }
