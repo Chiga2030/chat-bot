@@ -1,6 +1,6 @@
 html,
 body {
-	margin: 8px;
+	margin: .5em;
 }
 
 .body {
@@ -16,7 +16,7 @@ body {
 	font-family: robotoMono;
 	font-style: normal;
 	font-weight: 700;
-	font-size: 58px;
-	line-height: 64px;
+	font-size: 3.5em;
+	line-height: 1em;
 	color: #FFF;
 }

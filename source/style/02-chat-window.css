@@ -1,32 +1,40 @@
 .chat-window {
 	color: #fff;
 	border: 1px solid #EDEDED;
-	border-radius: 32px;
+	border-radius: 2em;
 	min-height: 640px;
-	padding: 0 40px;
+	padding: 0 2.5em;
 	position: relative;
 }
 
-.chat-window__buble-input {
-	bottom: 40px;
+.chat-window__text-buble {
+	display: flex;
+	align-items: center;
+	bottom: 2.5em;
+	background: #fff;
 	box-sizing: border-box;
 	position: absolute;
 	border: 0;
-	border-radius: 32px;
-	width: calc(100% - 40px * 2);
-	min-height: 64px;
+	border-radius: 2em;
+	width: calc(100% - 2.5em * 2);
+	height: 4em;
 	text-align: left;
-	outline:none;
-	padding: 16px 32px;
+	padding: 0 2em;
 	resize: none;
 	overflow: hidden;
 }
 
-.chat-window__buble-input::placeholder {
-	font-size: 1em;
-	text-align: center;
+.chat-window__text-buble-input {
+	border: 0;
+	font: normal normal 1.5em/1.5 "robotoMono";
+	color: #000;
+	height: 2.5em;
+	overflow-y: auto;
+	outline:none;
+	width: 100%;
+	resize: none;
 }
 
-.chat-window__buble-input:focus::placeholder {
-    color: transparent;
+.chat-window__text-buble-input::placeholder {
+	text-align: center;
 }
