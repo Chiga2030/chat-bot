@@ -29,12 +29,36 @@
 	font: normal normal 1.5em/1.5 "robotoMono";
 	color: #000;
 	height: 2.5em;
-	overflow-y: auto;
+	overflow-y: hidden;
 	outline:none;
-	width: 100%;
+	width: calc(100%);
 	resize: none;
+}
+
+.chat-window__text-buble-input:hover {
+	overflow-y: auto;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+	-moz-overflow-scrolling: touch;
+	-ms-overflow-scrolling: touch;
+	-o-overflow-scrolling: touch;
+	overflow-scrolling: touch;
+}
+
+.chat-window__text-buble-input::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 7px;
+}
+
+.chat-window__text-buble-input::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	background-color: rgba(40, 40, 40, .5);
 }
 
 .chat-window__text-buble-input::placeholder {
 	text-align: center;
+}
+
+.chat-window__text-buble-button {
+	margin-left: 8px;
 }
