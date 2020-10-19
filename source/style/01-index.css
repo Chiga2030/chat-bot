@@ -1,0 +1,22 @@
+html,
+body {
+	margin: .5em;
+}
+
+.body {
+	background: #282828;
+}
+
+.content {
+	max-width: 700px;
+	margin: auto;
+}
+
+.title {
+	font-family: robotoMono;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 3.5em;
+	line-height: 1em;
+	color: #FFF;
+}

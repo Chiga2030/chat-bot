@@ -2,12 +2,17 @@ const path = {
 	build: {
 		html: 'build/',
 		style: 'build/style/',
+		fonts: 'build/fonts/',
 		script: 'build/js/',
+		img: 'build/img/',
 	},
 	src: {
-		html: 'source/*.html',
-		style: 'source/**/*.css',
+		indexHtml: 'source/index.html',
+		html: 'source/**/*.html',
+		style: 'source/style/*.css',
+		fonts: 'source/fonts/',
 		script: 'source/**/*.js',
+		img: 'source/img/*',
 	}
 };
 
@@ -22,6 +27,9 @@ const cssnano = require('gulp-cssnano');	//для минификации css-ф�
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const rigger = require('gulp-rigger');	//работа с html "//= template/footer.html"
+const ttf2woff = require('gulp-ttf2woff');
+const ttf2woff2 = require('gulp-ttf2woff2');
+const imagemin = require('gulp-imagemin');	//compress images
 
 env ({
 	file: '.env',
@@ -30,7 +38,7 @@ env ({
 
 /* сборка html */
 gulp.task('build-html', () => {
-    gulp.src(path.src.html)
+    gulp.src(path.src.indexHtml)
         .pipe(rigger())
         .pipe(gulp.dest(path.build.html));
 });
@@ -43,6 +51,21 @@ gulp.task('build-styles', () => {
     	.pipe(gulpif(process.env.PRODUCTION === 'switch-on', cssnano()))
     .pipe(gulpif(process.env.SOURCEMAPS === 'switch-on', sourcemaps.write()))
 		.pipe(gulp.dest(path.build.style));
+});
+
+/* сборка шрифтов */
+gulp.task('build-fonts', () => {
+  gulp.src(path.src.fonts + '*.ttf')
+    .pipe(ttf2woff())
+    .pipe(gulp.dest(path.src.fonts));
+   	return gulp.src(path.src.fonts + '*.ttf')
+   		.pipe(ttf2woff2())
+    	.pipe(gulp.dest(path.src.fonts));
+});
+
+gulp.task('copy-fonts', () => {
+  gulp.src(path.src.fonts + '*.*')
+   	.pipe(gulp.dest(path.build.fonts));
 });
 
 /* сборка скриптов в один файл *-min.js */
@@ -58,28 +81,40 @@ gulp.task('build-scripts', () => {
 		.pipe(gulp.dest(path.build.script));
 });
 
+// compress images
+gulp.task('build-images', () => {
+  gulp.src(path.src.img)
+  .pipe(imagemin())
+  .pipe(gulp.dest(path.build.img))
+});
+
 /* zero configuration */
 gulp.task('clean', () => {
 	gulp.src('./build', {read: false})
   	.pipe(clean());
 });
 
-gulp.task('default', ['build-html', 'build-styles', 'build-scripts', 'browser-sync']);
-gulp.task('build', ['build-html', 'build-styles', 'build-scripts']);
+gulp.task('default', ['build-html', 'build-styles', 'copy-fonts', 'build-scripts', 'build-images', 'browser-sync']);
+gulp.task('build', ['build-html', 'build-styles', 'build-fonts', 'build-scripts', 'build-images']);
 gulp.task('prod', ['build']);	//build for prod
 gulp.task('dev', ['build', 'browser-sync']);	//build for dev
 
 gulp.task('browser-sync', () => {
 	browserSync.init({
     server: {
-    	baseDir: "./build/"
-    }
+    	baseDir: "./build/",
+    },
+    port: 3006,
   });
 	gulp.watch(path.src.html, ['watch-html']);
 	gulp.watch(path.src.style, ['watch-styles']);
+	gulp.watch(path.src.fonts, ['watch-fonts']);
 	gulp.watch(path.src.script, ['watch-scripts']);
+	gulp.watch(path.src.script, ['watch-images']);
 });
 
 gulp.task('watch-html', ['build-html'], () => browserSync.reload());
 gulp.task('watch-styles', ['build-styles'], () => browserSync.reload());
+gulp.task('watch-fonts', ['copy-fonts'], () => browserSync.reload());
 gulp.task('watch-scripts', ['build-scripts'], () => browserSync.reload());
+gulp.task('watch-images', ['build-images'], () => browserSync.reload());
