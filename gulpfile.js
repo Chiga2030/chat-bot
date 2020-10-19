@@ -6,7 +6,7 @@ const path = {
 		script: 'build/js/',
 	},
 	src: {
-		html: 'source/**/*.html',
+		html: 'source/index.html',
 		style: 'source/style/*.css',
 		fonts: 'source/fonts/',
 		script: 'source/**/*.js',
