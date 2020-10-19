@@ -1,0 +1,32 @@
+.chat-window {
+	color: #fff;
+	border: 1px solid #EDEDED;
+	border-radius: 32px;
+	min-height: 640px;
+	padding: 0 40px;
+	position: relative;
+}
+
+.chat-window__buble-input {
+	bottom: 40px;
+	box-sizing: border-box;
+	position: absolute;
+	border: 0;
+	border-radius: 32px;
+	width: calc(100% - 40px * 2);
+	min-height: 64px;
+	text-align: left;
+	outline:none;
+	padding: 16px 32px;
+	resize: none;
+	overflow: hidden;
+}
+
+.chat-window__buble-input::placeholder {
+	font-size: 1em;
+	text-align: center;
+}
+
+.chat-window__buble-input:focus::placeholder {
+    color: transparent;
+}

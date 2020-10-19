@@ -1,6 +1,6 @@
 html,
 body {
-	margin: 0;
+	margin: 8px;
 }
 
 .body {
@@ -17,5 +17,6 @@ body {
 	font-style: normal;
 	font-weight: 700;
 	font-size: 58px;
+	line-height: 64px;
 	color: #FFF;
 }

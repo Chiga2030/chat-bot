@@ -7,7 +7,7 @@ const path = {
 	},
 	src: {
 		html: 'source/**/*.html',
-		style: 'source/**/*.css',
+		style: 'source/style/*.css',
 		fonts: 'source/fonts/',
 		script: 'source/**/*.js',
 	}
@@ -83,7 +83,7 @@ gulp.task('clean', () => {
   	.pipe(clean());
 });
 
-gulp.task('default', ['build-html', 'build-styles', 'build-fonts', 'copy-fonts', 'build-scripts', 'browser-sync']);
+gulp.task('default', ['build-html', 'build-styles', 'copy-fonts', 'build-scripts', 'browser-sync']);
 gulp.task('build', ['build-html', 'build-styles', 'build-fonts', 'build-scripts']);
 gulp.task('prod', ['build']);	//build for prod
 gulp.task('dev', ['build', 'browser-sync']);	//build for dev
@@ -102,5 +102,5 @@ gulp.task('browser-sync', () => {
 
 gulp.task('watch-html', ['build-html'], () => browserSync.reload());
 gulp.task('watch-styles', ['build-styles'], () => browserSync.reload());
-gulp.task('watch-fonts', ['build-fonts', 'copy-fonts'], () => browserSync.reload());
+gulp.task('watch-fonts', ['copy-fonts'], () => browserSync.reload());
 gulp.task('watch-scripts', ['build-scripts'], () => browserSync.reload());
