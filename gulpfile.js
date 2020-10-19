@@ -102,8 +102,9 @@ gulp.task('dev', ['build', 'browser-sync']);	//build for dev
 gulp.task('browser-sync', () => {
 	browserSync.init({
     server: {
-    	baseDir: "./build/"
-    }
+    	baseDir: "./build/",
+    },
+    port: 3006,
   });
 	gulp.watch(path.src.html, ['watch-html']);
 	gulp.watch(path.src.style, ['watch-styles']);
