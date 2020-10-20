@@ -1,0 +1,26 @@
+.message {
+	margin-bottom: 1.5em;
+	display: flex;
+}
+
+.message__avatar {
+	border-radius: 50px;
+	/*height: 4em;*/
+	min-width: 5em;
+}
+
+.message__avatar_user {
+	background: center / cover no-repeat url(../img/user-avatar.svg);
+}
+
+.message__buble {
+	font: normal normal 1em/1 "roboto";
+	color: #282828;
+	margin-left: 2em;
+	border-radius: 32px;
+	padding: 1em 2em;
+}
+
+.message__buble_user {
+	background: #F9C35B;
+}

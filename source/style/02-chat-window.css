@@ -5,18 +5,19 @@
 	min-height: 640px;
 	padding: 0 2.5em;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 
 .chat-window__text-buble {
 	display: flex;
 	align-items: center;
-	bottom: 2.5em;
+	margin-bottom: 2.5em;
 	background: #fff;
 	box-sizing: border-box;
-	position: absolute;
 	border: 0;
 	border-radius: 2em;
-	width: calc(100% - 2.5em * 2);
 	height: 4em;
 	text-align: left;
 	padding: 0 2em;
