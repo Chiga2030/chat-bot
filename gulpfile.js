@@ -110,7 +110,7 @@ gulp.task('browser-sync', () => {
 	gulp.watch(path.src.style, ['watch-styles']);
 	gulp.watch(path.src.fonts, ['watch-fonts']);
 	gulp.watch(path.src.script, ['watch-scripts']);
-	gulp.watch(path.src.script, ['watch-images']);
+	gulp.watch(path.src.img, ['watch-images']);
 });
 
 gulp.task('watch-html', ['build-html'], () => browserSync.reload());
