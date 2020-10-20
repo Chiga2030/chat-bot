@@ -63,14 +63,14 @@
 	border: 0;
 	margin-left: 8px;
 	width: 3em;
-	height: 2.7em;
-	/*background: center / cover no-repeat url(../img/submit-arrow.svg#orange);*/
+	height: 2.4em;
+	background: top / cover no-repeat url(../img/arrows.svg);
 	outline:none;
+	transition: background-position .2s;
+	cursor: pointer;
 }
 
 .chat-window__text-buble-button:disabled {
-	/*filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);*/
-	/*background-color: red;*/
-	/*background-image: url(../img/submit-arrow.svg#black);*/
-
+	background-position: bottom;
+	cursor: not-allowed;
 }
