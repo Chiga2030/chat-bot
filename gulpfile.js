@@ -72,12 +72,12 @@ gulp.task('copy-fonts', () => {
 gulp.task('build-scripts', () => {
 	gulp.src(path.src.script)
     .pipe(gulpif(process.env.SOURCEMAPS === 'switch-on', sourcemaps.init()))
-			.pipe(concat('scripts-min.js'))
+		.pipe(concat('scripts-min.js'))
     	.pipe(gulpif(process.env.BABEL === 'switch-on', babel({
 	    	presets: ['@babel/env']
 	    })))
-    	.pipe(gulpif(process.env.NODE_ENV === 'production', uglify()))
-    .pipe(gulpif(process.env.SOURCEMAPS === 'switch-on', sourcemaps.write()))
+    	.pipe(gulpif(process.env.PRODUCTION === 'switch-on', uglify()))
+    	.pipe(gulpif(process.env.SOURCEMAPS === 'switch-on', sourcemaps.write()))
 		.pipe(gulp.dest(path.build.script));
 });
 
@@ -110,7 +110,7 @@ gulp.task('browser-sync', () => {
 	gulp.watch(path.src.style, ['watch-styles']);
 	gulp.watch(path.src.fonts, ['watch-fonts']);
 	gulp.watch(path.src.script, ['watch-scripts']);
-	gulp.watch(path.src.script, ['watch-images']);
+	gulp.watch(path.src.img, ['watch-images']);
 });
 
 gulp.task('watch-html', ['build-html'], () => browserSync.reload());

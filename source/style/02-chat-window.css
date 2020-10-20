@@ -60,5 +60,17 @@
 }
 
 .chat-window__text-buble-button {
+	border: 0;
 	margin-left: 8px;
+	width: 3em;
+	height: 2.4em;
+	background: top / cover no-repeat url(../img/arrows.svg);
+	outline:none;
+	transition: background-position .2s;
+	cursor: pointer;
+}
+
+.chat-window__text-buble-button:disabled {
+	background-position: bottom;
+	cursor: not-allowed;
 }
