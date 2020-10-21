@@ -4,8 +4,11 @@
 	padding: 1em 1em 0 0;
 	margin-bottom: 1px;
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
+	flex-direction: column-reverse;
+	/*justify-content: flex-end;*/
+	/*flex-flow: column nowrap;*/
+	/*align-content: flex-end;*/
+	/*position: relative;*/
 }
 
 .chat-window__history:hover {
@@ -30,7 +33,7 @@
 }
 
 .message {
-	margin-bottom: 1.5em;
+	margin: 1.5em 0;
 	display: flex;
 }
 
