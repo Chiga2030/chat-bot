@@ -9,6 +9,7 @@ body {
 
 .content {
 	max-width: 700px;
+	min-width: 352px;
 	margin: auto;
 }
 
