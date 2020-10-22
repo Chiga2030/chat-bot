@@ -5,7 +5,7 @@ const createMessage = (textMessage) => {
 	`;
 	const message = document.createElement('div');
 	message.classList.add('message');
-	message.style.order = counter() - 1;
+	message.style.order = orderMessage() - 1;
 	message.innerHTML = messageTemplate;
 
 	return message;
