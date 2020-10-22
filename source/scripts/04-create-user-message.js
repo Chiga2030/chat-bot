@@ -15,9 +15,11 @@ const postingMessage = (text) => {
 	chatHistory.appendChild(createMessage(text))
 };
 
-postingMessage('')
-// postingMessage('test2')
-// postingMessage('test3')
-// postingMessage('test4')
-// postingMessage('test5')
-// postingMessage('test6')
+// postingMessage('test')
+
+const curentMessage = new Promise( resolve => {
+    resolve(postingMessage(''));
+});
+
+ curentMessage
+	.then(userBuble = document.querySelectorAll('.message__buble_user'));
