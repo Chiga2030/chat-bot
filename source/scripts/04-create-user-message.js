@@ -1,5 +1,3 @@
-const counter = makeCounter();
-
 const createMessage = (textMessage) => {
 	const messageTemplate = `
 			<div class='message__avatar message__avatar_user'></div>
@@ -7,7 +5,7 @@ const createMessage = (textMessage) => {
 	`;
 	const message = document.createElement('div');
 	message.classList.add('message');
-	message.style.order = counter();
+	message.style.order = counter() - 1;
 	message.innerHTML = messageTemplate;
 
 	return message;
@@ -17,9 +15,9 @@ const postingMessage = (text) => {
 	chatHistory.appendChild(createMessage(text))
 };
 
-postingMessage('test')
-postingMessage('test2')
-postingMessage('test3')
-postingMessage('test4')
-postingMessage('test5')
-postingMessage('test6')
+postingMessage('')
+// postingMessage('test2')
+// postingMessage('test3')
+// postingMessage('test4')
+// postingMessage('test5')
+// postingMessage('test6')
