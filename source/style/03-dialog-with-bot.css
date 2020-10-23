@@ -56,3 +56,20 @@
 .message__buble_user {
 	background: #F9C35B;
 }
+
+.message__buble_user_has-tail {
+  border-radius: 50px 50px 50px 0;
+  position: relative;
+}
+
+.message__buble_user_has-tail::before {
+  border-bottom: 8px solid #F9C35B;
+  border-left: 16px solid transparent;
+  border-right: 0px solid transparent;
+  bottom: 0;
+  content: '';
+  position: absolute;
+  left: -16px;
+  height: 0;
+  width: 0;
+}
