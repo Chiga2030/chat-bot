@@ -9,3 +9,8 @@ inputText.addEventListener('focus', () => {
 inputText.addEventListener('blur', () => {
 	userBuble[userBuble.length-1].classList.remove('message__buble_user_has-tail');
 })
+
+inputText.addEventListener('click', event => {
+	const userMessage = new Message('user', '');
+	addMessage(userMessage, chatHistory)
+})
