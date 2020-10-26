@@ -6,7 +6,7 @@ const userTemplate = `
 newMessage = () => {
 	const message = document.createElement('div');
 	message.classList.add('message');
-	message.style.order = orderMessage() - 1;
+	message.style.order = order() - 1;
 	message.dataset.build = true;
 	message.innerHTML = userTemplate;
 

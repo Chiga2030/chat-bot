@@ -1,4 +1,4 @@
-function makeCounter() {
+function makeDecrementor() {
   let currentCount = 0;
 
   return function() {
