@@ -3,7 +3,7 @@ inputText.addEventListener('click', () => {
 
 	if( !lastMessage ) {
 		const printEmptyMessage = new Promise(resolve => {
-			addMessage(newMessage(), chatHistory);
+			addMessage(newMessage(''), chatHistory);
 			const lastBuble = searchLastElement('.message__buble_user');
 
 			resolve(lastBuble);

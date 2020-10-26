@@ -1,3 +1,3 @@
-function addMessage(message, toChat) {
+function addMessage(message = '', toChat) {
 	toChat.append(message);
 }
