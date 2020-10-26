@@ -1,7 +1,7 @@
 inputText.addEventListener('click', () => {
 	const lastMessage = searchLastElement('.message');
 
-	if( !lastMessage ) {
+	if( !lastMessage || (lastMessage.dataset.build === 'false') ) {
 		const printEmptyMessage = new Promise(resolve => {
 			addMessage(newMessage(''), chatHistory);
 			const lastBuble = searchLastElement('.message__buble_user');
@@ -21,7 +21,7 @@ inputText.addEventListener('click', () => {
 					resolve(buble);
 				});
 			});
-	};
+	}
 });
 
 inputText.addEventListener('blur', () => {
