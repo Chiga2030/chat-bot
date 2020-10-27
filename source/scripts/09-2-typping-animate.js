@@ -1,7 +1,7 @@
 const dottedAnimate = () => {
   let currentCount = 0;
   let weigth = 700;
-  
+
   return function() {
     const dottes = searchElements('span')
     

@@ -1,4 +1,19 @@
 inputText.addEventListener('input', () => {
+	const lastMessage = searchLastElement('.message');
+
 	submitBtn.disabled = !isValid(inputText.value);
-	typping();
-})
+
+	if( lastMessage.dataset.build === 'true' ) {
+		typping();
+	} else {
+		addMessage(newMessage(), chatHistory);
+		const lastBuble = searchLastElement('.message__buble');
+		lastBuble.classList.add('message__buble_user_has-tail');
+	}
+});
+
+inputText.addEventListener('keyup', event => {
+	if ( event.code == 'Enter' ) {
+		submitMessage();
+	}
+});
