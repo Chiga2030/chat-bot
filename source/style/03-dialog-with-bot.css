@@ -1,6 +1,6 @@
 .chat-window__history {
 	height: 100%;
-	overflow-y: hidden;
+	overflow: hidden;
 	padding: 1em 1em 0 0;
 	margin-bottom: .5em;
 	display: flex;
@@ -51,6 +51,8 @@
 	border-radius: 32px;
 	padding: 1em 2em;
 	height: fit-content;
+	max-width: 16em;
+	word-wrap: break-word;
 }
 
 .message__buble_user {
