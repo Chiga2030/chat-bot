@@ -6,7 +6,7 @@ inputText.addEventListener('focus', () => {
 		lastBuble.classList.add('message__buble_user_has-tail');
 	}	else if( !lastMessage || (lastMessage.dataset.build === 'false') ) {
 		const printEmptyMessage = new Promise(resolve => {
-			addMessage(newMessage(''), chatHistory);
+			addMessage(newMessage(), chatHistory);
 			const lastBuble = searchLastElement('.message__buble_user');
 
 			resolve(lastBuble);
