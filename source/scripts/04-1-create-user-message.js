@@ -1,6 +1,6 @@
 const dots = '<span class="dotted-anim">.</span><span class="dotted-anim">.</span><span class="dotted-anim">.</span><span class="dotted-anim">.</span>';
 
-newMessage = (text = dots, build = true) => {
+const newMessage = (text = dots, build = true) => {
 	const userTemplate = `
 			<div class='message__avatar message__avatar_user'></div>
 			<div class='message__buble message__buble_user'>${text}</div>
