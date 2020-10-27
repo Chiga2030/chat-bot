@@ -12,8 +12,15 @@ inputText.addEventListener('input', () => {
 	}
 });
 
-inputText.addEventListener('keyup', event => {
-	if ( event.code == 'Enter' ) {
-		submitMessage();
+inputText.addEventListener('keydown', event => {
+	if ( event.code === 'Enter' || event.code === 'NumpadEnter' ) {
+		event.preventDefault();
+		if ( isValid(inputText.value) ) {
+			submitMessage();
+		}
 	}
+});
+
+submitBtn.addEventListener('click', () => {
+		submitMessage();
 });
