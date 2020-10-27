@@ -1,7 +1,10 @@
-inputText.addEventListener('click', () => {
+inputText.addEventListener('focus', () => {
 	const lastMessage = searchLastElement('.message');
 
-	if( !lastMessage || (lastMessage.dataset.build === 'false') ) {
+	if( lastBuble &&  (lastMessage.dataset.build === 'true')) {
+		const lastBuble = searchLastElement('.message__buble_user');
+		lastBuble.classList.add('message__buble_user_has-tail');
+	}	else if( !lastMessage || (lastMessage.dataset.build === 'false') ) {
 		const printEmptyMessage = new Promise(resolve => {
 			addMessage(newMessage(''), chatHistory);
 			const lastBuble = searchLastElement('.message__buble_user');
@@ -25,15 +28,8 @@ inputText.addEventListener('click', () => {
 });
 
 inputText.addEventListener('blur', () => {
-	lastBuble
-		.then(lastBuble => {
-			lastBuble.classList.remove('message__buble_user_has-tail');
-			
-			return lastBuble;
-		})
-		.then(lastBuble => {
-			inputText.addEventListener('focus', () => {
-				lastBuble.classList.add('message__buble_user_has-tail');
-			});
-		});
-})
+	if( lastBuble ) {
+		const lastBuble = searchLastElement('.message__buble_user');
+		lastBuble.classList.remove('message__buble_user_has-tail');
+	}
+});
