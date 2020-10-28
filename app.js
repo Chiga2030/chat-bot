@@ -1,20 +1,21 @@
 // подключение express
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require('cors');
 // создаем объект приложения
 const app = express();
 
-app.use(cors());
+const bot = require('./bot-core.js');
+// console.log(bot());
 
-// создаем парсер для данных application/x-www-form-urlencoded
-const urlencodedParser = bodyParser.urlencoded({extended: false});
+app.use(cors());
+app.use(express.json()); // for parsing application/json
 
 // определяем обработчик для маршрута "/"
-app.post("/request-to-bot", urlencodedParser, function (request, response) {
+app.post("/request-to-bot", function (request, response) {
     if(!request.body) return response.sendStatus(400);
     console.log(request.body);
-    response.send(`${request.body.userName} - ${request.body.userAge}`);
+
+    response.send(JSON.stringify(request.body));
 });
 
 // начинаем прослушивать подключения на 3000 порту
