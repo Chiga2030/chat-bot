@@ -1,33 +1,30 @@
-function defineComand(comand) {
-	switch(comand) {
-		case `/start`:
-		const quickMath = new userMessage('/number: 7, 9');
+function defineComand(data) {
+	let newMessage;
 
-			console.log('пришла команда СТАРТ')
+	switch(data[0]) {
+		case `/start`:
+		case `/stop`:
+			newMessage = new StartStopMessage(...data);
+			console.log('определена команда СТАРТ или СТОП')
+			return newMessage;
 			break;
 		case `/name`:
-			console.log('пришла команда ИМЯ')
+			newMessage = new NameMessage(...data);
+			console.log('определена команда ИМЯ')
+			return newMessage;
 			break;
 		case `/number`:
-			console.log('пришла команда ЧИСЛО')
-			break;
-		case `/stop`:
-			console.log('пришла команда СТОП')
+			newMessage = new NumMessage(...data);
+			console.log('определена команда ЧИСЛО')
+			return newMessage;
 			break;
 		default:
     		console.log( "Я не понимаю, введите другую команду!" );
 	}
-
-
-
-
-
-
-
 }
 
-defineComand(dataStart[0]);
-defineComand(dataName[0]);
-defineComand(dataNum[0]);
-defineComand(dataStop[0]);
-defineComand(dataStop[1]);
+const quickMath = defineComand(dataStart);
+// const quickMath = defineComand(dataName);
+// const quickMath = defineComand(dataNum);
+// const quickMath = defineComand(dataStop);
+// const quickMath = defineComand(dataStop[1]);
