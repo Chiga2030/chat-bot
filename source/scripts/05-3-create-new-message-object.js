@@ -1,6 +1,8 @@
 function defineComand(comand) {
 	switch(comand) {
 		case `/start`:
+		const quickMath = new userMessage('/number: 7, 9');
+
 			console.log('пришла команда СТАРТ')
 			break;
 		case `/name`:
