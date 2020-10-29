@@ -27,4 +27,4 @@ const quickMath = defineComand(dataStart);
 // const quickMath = defineComand(dataName);
 // const quickMath = defineComand(dataNum);
 // const quickMath = defineComand(dataStop);
-// const quickMath = defineComand(dataStop[1]);
+// const quickMath = defineComand(dataStop[0]);
