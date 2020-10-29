@@ -22,9 +22,3 @@ function defineComand(data) {
     		console.log( "Я не понимаю, введите другую команду!" );
 	}
 }
-
-const quickMath = defineComand(dataStart);
-// const quickMath = defineComand(dataName);
-// const quickMath = defineComand(dataNum);
-// const quickMath = defineComand(dataStop);
-// const quickMath = defineComand(dataStop[0]);
