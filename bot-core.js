@@ -1,9 +1,10 @@
-function botInterface(query = 'default') {
+function botInterface(query) {
 	let response;
-	// sendMessage(defineComand(parseUserMessage(inputText.value)));
 
 	const request = defineComand(parseUserMessage(query));
 	console.log('request:', request);
+
+	response = request;
 
 	return {response};
 }
@@ -13,9 +14,16 @@ function botInterface(query = 'default') {
 
 
 
+const history = {
+	archive: [],
 
-
-
+	add(entry) {
+		this.archive.push(entry);
+	},
+	clear() {
+		this.archive = [];
+	},
+}
 
 
 
@@ -27,9 +35,8 @@ function defineComand(data) {
 
 	switch(data[0]) {
 		case `/start`:
-		case `/stop`:
-			newMessage = new StartStopMessage(...data);
-			console.log('определена команда СТАРТ или СТОП')
+			history.add(data[0]);
+			newMessage = new Message('Привет, меня зовут Чат-бот, а как зовут тебя?');
 			return newMessage;
 			break;
 		case `/name`:
@@ -40,6 +47,11 @@ function defineComand(data) {
 		case `/number`:
 			newMessage = new NumMessage(...data);
 			console.log('определена команда ЧИСЛО')
+			return newMessage;
+			break;
+		case `/stop`:
+			history.clear();
+			newMessage = new Message('Всего доброго, если хочешь поговорить пиши /start');
 			return newMessage;
 			break;
 		default:
@@ -59,22 +71,22 @@ function parseUserMessage(data) {
 
 
 
-class StartStopMessage {
-	constructor(comand) {
-		this.comand = comand;
+class Message {
+	constructor(answer) {
+		this.answer = answer;
 	}
 }
 
-class NameMessage extends StartStopMessage {
-	constructor(comand, name) {
-		super(comand);
+class NameMessage extends Message {
+	constructor(answer, name) {
+		super(answer);
 		this.name = name;
 	}
 }
 
-class NumMessage extends StartStopMessage {
-	constructor(comand, num1, num2) {
-		super(comand);
+class NumMessage extends Message {
+	constructor(answer, num1, num2) {
+		super(answer);
 		this.num1 = num1;
 		this.num2 = num2;
 	}
