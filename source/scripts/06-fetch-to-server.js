@@ -1,4 +1,4 @@
-const sendMessage =  async (request) => {
+const sendMessage =  async (request='string') => {
 	const url = 'http://localhost:3000/request-to-bot';
 
 	let response = await fetch(url, {
@@ -6,7 +6,7 @@ const sendMessage =  async (request) => {
 	  headers: {
 	    'Content-Type': 'application/json;charset=utf-8'
 	  },
-	  body: JSON.stringify(request)
+	  body: JSON.stringify({request})
 	});
 
 	let result = await response.json();

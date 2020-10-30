@@ -15,7 +15,7 @@ app.post("/request-to-bot", function (request, response) {
     if(!request.body) return response.sendStatus(400);
     console.log(request.body);
 
-    response.send(JSON.stringify(request.body));
+    response.send(bot(request.body.request));
 });
 
 // начинаем прослушивать подключения на 3000 порту
