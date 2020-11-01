@@ -4,8 +4,7 @@ const cors = require('cors');
 // создаем объект приложения
 const app = express();
 
-const bot = require('./bot-core.js');
-// console.log(bot());
+const bot = require('./bot-modules/bot-interface.js');
 
 app.use(cors());
 app.use(express.json()); // for parsing application/json
@@ -13,7 +12,6 @@ app.use(express.json()); // for parsing application/json
 // определяем обработчик для маршрута "/"
 app.post("/request-to-bot", function (request, response) {
     if(!request.body) return response.sendStatus(400);
-    console.log(request.body);
 
     response.send(bot(request.body.request));
 });
