@@ -4,6 +4,7 @@ function submitMessage() {
 
 	lastMessage.innerHTML = '';
 	addMessage(newMessage(inputText.value, false), chatHistory);
+	sendMessage(inputText.value);
 	inputForm.reset();
 	submitBtn.disabled = !isValid(inputText.value);
 }

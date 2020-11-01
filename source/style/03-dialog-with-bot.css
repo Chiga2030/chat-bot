@@ -1,21 +1,21 @@
 .chat-window__history {
-	height: 100%;
-	overflow: hidden;
-	padding: 1em 1em 0 0;
-	margin-bottom: .5em;
 	display: flex;
 	flex-direction: column-reverse;
+	height: 100%;
+	margin-bottom: .5em;
+	overflow: hidden;
+	padding: 1em 1em 0 0;
 }
 
 .chat-window__history:hover {
-	overflow-y: scroll;
-	overflow-x: hidden;
-	-webkit-overflow-scrolling: touch;
 	-moz-overflow-scrolling: touch;
 	-ms-overflow-scrolling: touch;
 	-o-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
 	overflow-scrolling: touch;
-	padding-right: .55em; 
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding-right: .55em;
 }
 
 .chat-window__history::-webkit-scrollbar {
@@ -24,13 +24,13 @@
 }
 
 .chat-window__history::-webkit-scrollbar-thumb {
-	border-radius: 8px;
 	background-color: #fff;
+	border-radius: 8px;
 }
 
 .message {
-	margin: 1.5em 0;
 	display: flex;
+	margin: 1.5em 0;
 }
 
 .message__avatar {
@@ -44,19 +44,27 @@
 	background: center / cover no-repeat url(../img/user-avatar.svg);
 }
 
+.message__avatar_bot {
+	background: center / cover no-repeat url(../img/bot-avatar.svg);
+}
+
 .message__buble {
-	font: normal normal 1em/1 "roboto";
-	color: #282828;
-	margin-left: 2em;
 	border-radius: 32px;
-	padding: 1em 2em;
+	color: #282828;
+	font: normal normal 1em/1 "roboto";
 	height: fit-content;
+	margin-left: 2em;
 	max-width: 16em;
+	padding: 1em 2em;
 	word-wrap: break-word;
 }
 
 .message__buble_user {
 	background: #F9C35B;
+}
+
+.message__buble_bot {
+	background: #F1F0F0;
 }
 
 .message__buble_user_has-tail {
@@ -70,8 +78,8 @@
   border-right: 0px solid transparent;
   bottom: 0;
   content: '';
-  position: absolute;
-  left: -16px;
   height: 0;
+  left: -16px;
+  position: absolute;
   width: 0;
 }

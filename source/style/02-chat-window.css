@@ -1,48 +1,48 @@
 .chat-window {
-	color: #fff;
-	border: 1px solid #EDEDED;
 	border-radius: 2em;
-	min-height: 640px;
-	height: 640px;
-	padding: 0 2.5em;
-	position: relative;
+	border: 1px solid #EDEDED;
+	color: #fff;
 	display: flex;
 	flex-direction: column;
+	height: 640px;
 	justify-content: flex-end;
+	min-height: 640px;
+	padding: 0 2.5em;
+	position: relative;
 }
 
 .chat-window__text-buble {
-	display: flex;
 	align-items: center;
-	margin-bottom: 2.5em;
 	background: #fff;
-	box-sizing: border-box;
-	border: 0;
 	border-radius: 2em;
+	border: 0;
+	box-sizing: border-box;
+	display: flex;
 	height: 4em;
-	text-align: left;
+	margin-bottom: 2.5em;
 	padding: 0 2em;
+	text-align: left;
 }
 
 .chat-window__text-buble-input {
 	border: 0;
-	font: normal normal 1.5em/1.5 "robotoMono";
 	color: #000;
+	font: normal normal 1.5em/1.5 "robotoMono";
 	height: 2.5em;
-	overflow-y: hidden;
 	outline:none;
-	width: calc(100%);
+	overflow-y: hidden;
 	resize: none;
+	width: calc(100%);
 }
 
 .chat-window__text-buble-input:hover {
-	overflow-y: auto;
-	overflow-x: hidden;
-	-webkit-overflow-scrolling: touch;
 	-moz-overflow-scrolling: touch;
 	-ms-overflow-scrolling: touch;
 	-o-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
 	overflow-scrolling: touch;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .chat-window__text-buble-input::-webkit-scrollbar {
@@ -51,8 +51,8 @@
 }
 
 .chat-window__text-buble-input::-webkit-scrollbar-thumb {
-	border-radius: 8px;
 	background-color: rgba(40, 40, 40, .5);
+	border-radius: 8px;
 }
 
 .chat-window__text-buble-input::placeholder {
@@ -60,14 +60,14 @@
 }
 
 .chat-window__text-buble-button {
-	border: 0;
-	margin-left: 8px;
-	min-width: 40px;
-	min-height: 35px;
 	background: top / cover no-repeat url(../img/arrows.svg);
+	border: 0;
+	cursor: pointer;
+	margin-left: 8px;
+	min-height: 35px;
+	min-width: 40px;
 	outline:none;
 	transition: background-position .2s;
-	cursor: pointer;
 }
 
 .chat-window__text-buble-button:disabled {
