@@ -1,7 +1,8 @@
 const history = require('./bot-history.js');
 const Message = require('./bot-message-constructor.js');
 const NumMessage = require('./bot-message-constructor.js');
-
+const getWeather = require('./bot-fetch-weather.js');
+getWeather()
 function defineComand(data) {
 	let answer;
 	const wrongStart = new Message('Введите команду /start, для начала общения');
@@ -80,6 +81,11 @@ function defineComand(data) {
 		case `/stop`:
 			history.clear();
 			answer = new Message('Всего доброго, если хочешь поговорить пиши /start');
+			return answer;
+			break;
+
+		case `/weather`:
+			answer = new Message(getWeather());
 			return answer;
 			break;
 
