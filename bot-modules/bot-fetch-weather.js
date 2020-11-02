@@ -1,31 +1,24 @@
-/**
-* api-doc for weather
-* https://openweathermap.org/api/hourly-forecast
-*
-* url: pro.openweathermap.org/data/2.5/forecast/hourly?q=Moscow&appid=c3f20cd7c63db163cc1fab6a995318f7
-*/
+const axios = require('axios');
 
 async function getWeather() {
-	console.log('weather here')
-	let city = 'Moscow';
+	let city = '%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0';
 	const APIKEY = 'c3f20cd7c63db163cc1fab6a995318f7';
-	const url = `pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&appid=${APIKEY}`;
+	const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}`;
 
-	const query = await fetch(url);
-
-	query
-		.then( data => data.json() )
-		.then( weather => console.log(weather) );
+  try {
+    const response = await axios.get(url, { 
+    	params: {
+    		lang: 'ru',
+    		appid: APIKEY,
+    		type: 'like',
+    		units: 'metric',
+    	}
+    });
+	  // return response.data.list[1]; // погода на завтра
+	  return response;
+  } catch (error) {
+    console.error('Ошибка: ', error);
+  }
 }
-
-
-
-
-
-
-
-
-
-
 
 module.exports = getWeather;
