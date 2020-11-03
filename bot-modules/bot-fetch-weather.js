@@ -14,8 +14,8 @@ async function getWeather() {
     		units: 'metric',
     	}
     });
-	  // return response.data.list[1]; // погода на завтра
-	  return response;
+    const result = await response.data.list[1]; // погода на завтра
+	  return result;
   } catch (error) {
     console.error('Ошибка: ', error);
   }

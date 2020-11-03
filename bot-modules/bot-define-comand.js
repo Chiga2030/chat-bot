@@ -86,9 +86,14 @@ function defineComand(data) {
 
 		// case `/weather`:
 		case `/w`:
-			answer = new Message(getWeather());
-			console.log(answer)
-			// return answer;
+			// answer = new Message(() => getWeather());
+			// async () => {
+
+			// await	getWeather()
+			// 		.then(obj => new Message(obj));
+
+			// }
+				return getWeather();
 			break;
 
 		default:
