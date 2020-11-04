@@ -79,6 +79,9 @@ function defineComand(data) {
 			break;
 
 		case `/stop`:
+			if(history.isEmpty()) {
+				return wrongStart;
+			}
 			history.clear();
 			answer = new Message('Всего доброго, если хочешь поговорить пиши /start');
 			return answer;
@@ -93,7 +96,7 @@ function defineComand(data) {
 			// 		.then(obj => new Message(obj));
 
 			// }
-				return getWeather();
+			// return getWeather();
 			break;
 
 		default:
