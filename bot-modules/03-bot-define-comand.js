@@ -1,7 +1,7 @@
-const history = require('./bot-history.js');
-const Message = require('./bot-message-constructor.js');
-const NumMessage = require('./bot-message-constructor.js');
-const getWeather = require('./bot-fetch-weather.js');
+const history = require('./04-bot-history.js');
+const Message = require('./05-bot-message-constructor.js');
+const NumMessage = require('./05-bot-message-constructor.js');
+const getWeather = require('./06-bot-fetch-weather.js');
 
 function defineComand(data) {
 	let answer;
@@ -89,14 +89,17 @@ function defineComand(data) {
 
 		// case `/weather`:
 		case `/w`:
-			// answer = new Message(() => getWeather());
-			// async () => {
 
-			// await	getWeather()
-			// 		.then(obj => new Message(obj));
+		// const defMock = {
+		// 		answer: getWeather()
+		// }
+			// console.log('getWeather() --- ', getWeather())
+		q = new Promise( resolve =>  resolve(getWeather()));
 
-			// }
-			// return getWeather();
+		console.log('q === ', q);
+
+		q.then( data => {return new Message(data)} )
+			// return defMock;
 			break;
 
 		default:

@@ -10,5 +10,6 @@ const sendMessage =  async (request='string') => {
 	});
 
 	let result = await response.json();
+	console.log('РЕЗУЛЬТАТ FETCH ЗАПРОСА ', result);
 	addMessage(newMessage(result.response.answer, false,'bot'), chatHistory)
 }
