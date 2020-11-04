@@ -30,6 +30,7 @@ const rigger = require('gulp-rigger');	//работа с html "//= template/foot
 const ttf2woff = require('gulp-ttf2woff');
 const ttf2woff2 = require('gulp-ttf2woff2');
 const imagemin = require('gulp-imagemin');	//compress images
+const nodemon = require('gulp-nodemon');
 
 env ({
 	file: '.env',
@@ -94,7 +95,16 @@ gulp.task('clean', () => {
   	.pipe(clean());
 });
 
-gulp.task('default', ['build-html', 'build-styles', 'copy-fonts', 'build-scripts', 'build-images', 'browser-sync']);
+gulp.task('nodemon', done => {
+  nodemon({
+    script: 'app.js'
+  , ext: 'js html'
+  , env: { 'NODE_ENV': 'development' }
+  , done: done
+  });
+});
+
+gulp.task('default', ['build-html', 'build-styles', 'copy-fonts', 'build-scripts', 'build-images', 'browser-sync', 'nodemon']);
 gulp.task('build', ['build-html', 'build-styles', 'build-fonts', 'build-scripts', 'build-images']);
 gulp.task('prod', ['build']);	//build for prod
 gulp.task('dev', ['build', 'browser-sync']);	//build for dev

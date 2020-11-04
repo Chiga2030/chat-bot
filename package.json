@@ -32,6 +32,7 @@
     "gulp-env": "^0.4.0",
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^7.1.0",
+    "gulp-nodemon": "^2.5.0",
     "gulp-rigger": "^0.5.8",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-ttf2woff": "^1.1.1",
