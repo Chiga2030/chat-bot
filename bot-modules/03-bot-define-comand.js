@@ -89,17 +89,10 @@ function defineComand(data) {
 
 		// case `/weather`:
 		case `/w`:
+			const weather = new Promise( resolve => resolve( getWeather() ) )
+				.then( answer => (new Message(answer)) );
 
-		// const defMock = {
-		// 		answer: getWeather()
-		// }
-			// console.log('getWeather() --- ', getWeather())
-		q = new Promise( resolve =>  resolve(getWeather()));
-
-		console.log('q === ', q);
-
-		q.then( data => {return new Message(data)} )
-			// return defMock;
+			return weather;
 			break;
 
 		default:

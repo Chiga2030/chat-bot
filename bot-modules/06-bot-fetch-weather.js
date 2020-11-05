@@ -1,34 +1,40 @@
 const axios = require('axios');
 
-function getWeather() {
-	let city = '%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0';
-	const APIKEY = 'c3f20cd7c63db163cc1fab6a995318f7';
-	const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}`;
+// function getWeather() {
+// 	let city = '%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0';
+// 	const APIKEY = 'c3f20cd7c63db163cc1fab6a995318f7';
+// 	const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}`;
 
-    axios.get(url, { 
-    	params: {
-    		lang: 'ru',
-    		appid: APIKEY,
-    		type: 'like',
-    		units: 'metric',
-    	}
-    })
-    .then(data => {
-      const output = data.data.list[1];
-      return output;
-    });
+//     const output = axios.get(url, { 
+//     	params: {
+//     		lang: 'ru',
+//     		appid: APIKEY,
+//     		type: 'like',
+//     		units: 'metric',
+//     	}
+//     })
+//     .then(obj => obj.data.list); // погода на завтра
 
-    // console.log('response --- ', response);
+//     return output;
+// }
 
-   //  response
-   //    .then( q => {
-   //      res = q.data.list[1]
-   //      return res;
-   //    } );
-   //    // .data.list[1]; // погода на завтра
-	  // // return result;
+function getTomorrowDate() {
+let test = new Date('2020-11-05 12:00:00');
 
-    return 'output';
+const today = new Date();
+const tomorrow = new Date(today);
+tomorrow.setDate(today.getDate() + 1 )
+tomorrow.setHours(12);
+tomorrow.setMinutes(0);
+tomorrow.setSeconds(0);
+
+
+console.log('test --- ', test.toUTCString());
+
+console.log('tomorrow --- ', tomorrow.toUTCString());
+
 }
 
-module.exports = getWeather;
+getTomorrowDate()
+
+// module.exports = getWeather;
