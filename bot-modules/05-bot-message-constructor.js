@@ -12,5 +12,12 @@ class NumMessage extends Message {
 	}
 }
 
-module.exports = Message;
-module.exports = NumMessage;
+class WeatherMessage {
+	constructor(answer) {
+		this.answer = 'Погода на завтра:';
+	}
+}
+
+module.exports.Message = Message;
+module.exports.NumMessage = NumMessage;
+module.exports.WeatherMessage = WeatherMessage;
