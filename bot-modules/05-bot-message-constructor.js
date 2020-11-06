@@ -14,7 +14,14 @@ class NumMessage extends Message {
 
 class WeatherMessage {
 	constructor(answer) {
-		this.answer = 'Погода на завтра:';
+		this.humidity = answer[0].main.humidity;
+		this.temp = answer[0].main.temp;
+		this.feels_like = answer[0].main.feels_like;
+		this.answer = this.processedData();
+	}
+
+	processedData() {
+		return `Погода на завтра: <br><br> Температура: ${this.temp} (ощущается как ${this.feels_like}) <br><br> Влажность ${this.humidity}%`;
 	}
 }
 
