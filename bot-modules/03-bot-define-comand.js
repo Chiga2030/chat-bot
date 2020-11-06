@@ -89,14 +89,19 @@ function defineComand(data) {
 
 		// case `/weather`:
 		case `/w`:
-			const weather = new Promise( resolve => resolve( getWeather() ) )
-				.then( forecast => searchTomorrowWeather( forecast ) )
-				.then( answer => (new Message.WeatherMessage(answer)) );
-			return weather;
+			history.add(data[0]);
+			answer = new Message.Message(`В каком городе вы хотите узнать погоду?`);
+			return answer;
 			break;
 
 		default:
-			if(history.isEmpty()) {
+			if(history.last() === '/w') {
+				const weather = getWeather()
+					.then( forecast => searchTomorrowWeather( forecast ) )
+					.then( answer => (new Message.WeatherMessage(answer)) );
+				return weather;
+				break;
+			} else if(history.isEmpty()) {
 				return wrongStart;
 			}
 			answer = new Message.Message('Я не понимаю, введите другую команду!');
