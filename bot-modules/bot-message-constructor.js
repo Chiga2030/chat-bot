@@ -21,7 +21,7 @@ class WeatherMessage {
 	}
 
 	processedData() {
-		return `Погода на завтра: <br><br> Температура: ${this.temp} (ощущается как ${this.feels_like}) <br><br> Влажность ${this.humidity}%`;
+		return `Погода на завтра: <br><br> Температура: ${this.temp}°C (ощущается как ${this.feels_like}°C) <br><br> Влажность ${this.humidity}%`;
 	}
 }
 
