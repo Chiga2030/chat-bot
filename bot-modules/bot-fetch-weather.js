@@ -1,5 +1,5 @@
 const axios = require('axios');
-const Message = require('./05-bot-message-constructor.js');
+const Message = require('./bot-message-constructor.js');
 
 function getWeather(city = 'Moskow') {
 	// let city = '%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0';

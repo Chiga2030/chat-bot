@@ -1,6 +1,6 @@
-const history = require('./04-bot-history.js');
-const Message = require('./05-bot-message-constructor.js');
-const getWeather = require('./06-bot-fetch-weather.js');
+const history = require('./bot-history.js');
+const Message = require('./bot-message-constructor.js');
+const getWeather = require('./bot-fetch-weather.js');
 const searchTomorrowWeather = require('./bot-search-tomorrow-weather.js');
 
 function defineComand(data) {
