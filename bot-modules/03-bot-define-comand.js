@@ -1,7 +1,5 @@
 const history = require('./04-bot-history.js');
 const Message = require('./05-bot-message-constructor.js');
-// const NumMessage = require('./05-bot-message-constructor.js');
-// const WeatherMessage = require('./05-bot-message-constructor.js');
 const getWeather = require('./06-bot-fetch-weather.js');
 const searchTomorrowWeather = require('./bot-search-tomorrow-weather.js');
 
@@ -94,7 +92,6 @@ function defineComand(data) {
 			const weather = new Promise( resolve => resolve( getWeather() ) )
 				.then( forecast => searchTomorrowWeather( forecast ) )
 				.then( answer => (new Message.WeatherMessage(answer)) );
-
 			return weather;
 			break;
 
