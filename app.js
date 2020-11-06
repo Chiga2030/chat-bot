@@ -4,7 +4,7 @@ const cors = require('cors');
 // создаем объект приложения
 const app = express();
 
-const bot = require('./bot-modules/01-bot-interface.js');
+const bot = require('./bot-modules/bot-interface.js');
 
 app.use(cors());
 app.use(express.json()); // for parsing application/json
