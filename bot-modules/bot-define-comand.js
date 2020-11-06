@@ -1,17 +1,17 @@
 const history = require('./bot-history.js');
 const Message = require('./bot-message-constructor.js');
-const NumMessage = require('./bot-message-constructor.js');
 const getWeather = require('./bot-fetch-weather.js');
+const searchTomorrowWeather = require('./bot-search-tomorrow-weather.js');
 
 function defineComand(data) {
 	let answer;
-	const wrongStart = new Message('Введите команду /start, для начала общения');
-	const wrongNum = new Message('Укажите числа которые нужно посчитать. Команда /number: число1, число2');
+	const wrongStart = new Message.Message('Введите команду /start, для начала общения');
+	const wrongNum = new Message.Message('Укажите числа которые нужно посчитать. Команда /number: число1, число2');
 
 	switch(data[0]) {
 		case `/start`:
 			history.add(data[0]);
-			answer = new Message('Привет, меня зовут Чат-бот, а как зовут тебя?');
+			answer = new Message.Message('Привет, меня зовут Чат-бот, а как зовут тебя?');
 			return answer;
 			break;
 
@@ -19,7 +19,7 @@ function defineComand(data) {
 			if(history.isEmpty()) {
 				return wrongStart;
 			}
-			answer = new Message(`Привет ${data[1]}, приятно познакомится. Я умею считать, введи числа которые надо посчитать`);
+			answer = new Message.Message(`Привет ${data[1]}, приятно познакомится. Я умею считать, введи числа которые надо посчитать`);
 			return answer;
 			break;
 
@@ -30,7 +30,7 @@ function defineComand(data) {
 				return wrongNum;
 			}
 			history.add(data);
-			answer = new NumMessage(`Выберите одно из действий: <br> - , + , * , /`);
+			answer = new Message.NumMessage(`Выберите одно из действий: <br> - , + , * , /`);
 			return answer;
 			break;
 
@@ -39,7 +39,7 @@ function defineComand(data) {
 				return wrongStart;
 			} else if (history.last()[0] === '/number' ) {
 				const calc = +history.last()[1] - +history.last()[2];
-				answer = new NumMessage(`${history.last()[1]} ${data[0]} ${history.last()[2]} = ${calc}`);
+				answer = new Message.NumMessage(`${history.last()[1]} ${data[0]} ${history.last()[2]} = ${calc}`);
 				return answer;
 			}
 			return wrongNum;
@@ -50,7 +50,7 @@ function defineComand(data) {
 				return wrongStart;
 			} else if (history.last()[0] === '/number' ) {
 				const calc = +history.last()[1] + +history.last()[2];
-				answer = new NumMessage(`${history.last()[1]} ${data[0]} ${history.last()[2]} = ${calc}`);
+				answer = new Message.NumMessage(`${history.last()[1]} ${data[0]} ${history.last()[2]} = ${calc}`);
 				return answer;
 			}
 			return wrongNum;
@@ -61,7 +61,7 @@ function defineComand(data) {
 				return wrongStart;
 			} else if (history.last()[0] === '/number' ) {
 				const calc = +history.last()[1] * +history.last()[2];
-				answer = new NumMessage(`${history.last()[1]} ${data[0]} ${history.last()[2]} = ${calc}`);
+				answer = new Message.NumMessage(`${history.last()[1]} ${data[0]} ${history.last()[2]} = ${calc}`);
 				return answer;
 			}
 			return wrongNum;
@@ -72,7 +72,7 @@ function defineComand(data) {
 				return wrongStart;
 			} else if (history.last()[0] === '/number' ) {
 				const calc = +history.last()[1] / +history.last()[2];
-				answer = new NumMessage(`${history.last()[1]} ${data[0]} ${history.last()[2]} = ${calc}`);
+				answer = new Message.NumMessage(`${history.last()[1]} ${data[0]} ${history.last()[2]} = ${calc}`);
 				return answer;
 			}
 			return wrongNum;
@@ -83,27 +83,33 @@ function defineComand(data) {
 				return wrongStart;
 			}
 			history.clear();
-			answer = new Message('Всего доброго, если хочешь поговорить пиши /start');
+			answer = new Message.Message('Всего доброго, если хочешь поговорить пиши /start');
 			return answer;
 			break;
 
-		// case `/weather`:
-		case `/w`:
-			// answer = new Message(() => getWeather());
-			// async () => {
-
-			// await	getWeather()
-			// 		.then(obj => new Message(obj));
-
-			// }
-			// return getWeather();
+		case `/weather`:
+			history.add(data[0]);
+			answer = new Message.Message(`В каком городе вы хотите узнать погоду?`);
+			return answer;
 			break;
 
 		default:
-			if(history.isEmpty()) {
+			if(history.last() === '/weather') {
+				const weather = getWeather(encodeURI(data[0]))
+					.then( forecast => searchTomorrowWeather( forecast ) )
+					.then( answer => (new Message.WeatherMessage(answer)) )
+					.catch( e => {
+						if(e.response.data.cod) {
+							return new Message.Message('Такого города не найдено, попробуйте снова');
+						}
+					});
+				history.clearLast();
+				return weather;
+				break;
+			} else if(history.isEmpty()) {
 				return wrongStart;
 			}
-			answer = new Message('Я не понимаю, введите другую команду!');
+			answer = new Message.Message('Я не понимаю, введите другую команду!');
 			return answer;
 			break;
 	}

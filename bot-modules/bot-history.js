@@ -7,6 +7,9 @@ const history = {
 	clear() {
 		this.archive = [];
 	},
+	clearLast() {
+		this.archive.pop();
+	},
 	isEmpty() {
 		const empty = !this.archive[0];
 		return empty;
