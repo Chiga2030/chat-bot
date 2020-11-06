@@ -87,18 +87,23 @@ function defineComand(data) {
 			return answer;
 			break;
 
-		// case `/weather`:
-		case `/w`:
+		case `/weather`:
 			history.add(data[0]);
 			answer = new Message.Message(`В каком городе вы хотите узнать погоду?`);
 			return answer;
 			break;
 
 		default:
-			if(history.last() === '/w') {
-				const weather = getWeather()
+			if(history.last() === '/weather') {
+				const weather = getWeather(encodeURI(data[0]))
 					.then( forecast => searchTomorrowWeather( forecast ) )
-					.then( answer => (new Message.WeatherMessage(answer)) );
+					.then( answer => (new Message.WeatherMessage(answer)) )
+					.catch( e => {
+						if(e.response.data.cod) {
+							return new Message.Message('Такого города не найдено, попробуйте снова');
+						}
+					});
+				history.clearLast();
 				return weather;
 				break;
 			} else if(history.isEmpty()) {
