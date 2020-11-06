@@ -12,5 +12,19 @@ class NumMessage extends Message {
 	}
 }
 
-module.exports = Message;
-module.exports = NumMessage;
+class WeatherMessage {
+	constructor(answer) {
+		this.humidity = answer[0].main.humidity;
+		this.temp = answer[0].main.temp;
+		this.feels_like = answer[0].main.feels_like;
+		this.answer = this.processedData();
+	}
+
+	processedData() {
+		return `Погода на завтра: <br><br> Температура: ${this.temp} (ощущается как ${this.feels_like}) <br><br> Влажность ${this.humidity}%`;
+	}
+}
+
+module.exports.Message = Message;
+module.exports.NumMessage = NumMessage;
+module.exports.WeatherMessage = WeatherMessage;

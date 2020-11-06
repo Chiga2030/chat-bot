@@ -13,7 +13,10 @@ app.use(express.json()); // for parsing application/json
 app.post("/request-to-bot", function (request, response) {
     if(!request.body) return response.sendStatus(400);
 
-    response.send(bot(request.body.request));
+    const botAnswer = new Promise( resolve => resolve(bot(request.body.request)) );
+    
+    botAnswer
+    	.then(answer => response.send( answer ));
 });
 
 // начинаем прослушивать подключения на 3000 порту
