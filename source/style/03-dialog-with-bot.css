@@ -1,7 +1,6 @@
 .chat-window__history {
 	display: flex;
 	flex-direction: column-reverse;
-	height: 100%;
 	margin-bottom: .5em;
 	overflow: hidden;
 	padding: 1em 1em 0 0;
@@ -12,7 +11,6 @@
 	-ms-overflow-scrolling: touch;
 	-o-overflow-scrolling: touch;
 	-webkit-overflow-scrolling: touch;
-	overflow-scrolling: touch;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	padding-right: .55em;
