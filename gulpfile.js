@@ -31,6 +31,7 @@ const ttf2woff = require('gulp-ttf2woff');
 const ttf2woff2 = require('gulp-ttf2woff2');
 const imagemin = require('gulp-imagemin');	//compress images
 const nodemon = require('gulp-nodemon');
+const autoprefixer = require('gulp-autoprefixer');
 
 env ({
 	file: '.env',
@@ -44,14 +45,20 @@ gulp.task('build-html', () => {
         .pipe(gulp.dest(path.build.html));
 });
 
+
 /* сборка стилей в один файл style-min.css */
 gulp.task('build-styles', () => {
-	gulp.src(path.src.style)
-    .pipe(gulpif(process.env.SOURCEMAPS === 'switch-on', sourcemaps.init()))
-			.pipe(concat('style-min.css'))
-    	.pipe(gulpif(process.env.PRODUCTION === 'switch-on', cssnano()))
-    .pipe(gulpif(process.env.SOURCEMAPS === 'switch-on', sourcemaps.write()))
-		.pipe(gulp.dest(path.build.style));
+	
+    gulp.src(path.src.style)
+      .pipe(gulpif(process.env.SOURCEMAPS === 'switch-on', sourcemaps.init()))
+      .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+      }))
+      .pipe(concat('style-min.css'))
+      .pipe(gulpif(process.env.PRODUCTION === 'switch-on', cssnano()))
+      .pipe(gulpif(process.env.SOURCEMAPS === 'switch-on', sourcemaps.write()))
+      .pipe(gulp.dest(path.build.style));
 });
 
 /* сборка шрифтов */
