@@ -3,12 +3,10 @@
 	html,
 	body {
 		margin: 0;
-		height: 100vh;
 	}
 
 	.content {
 		width: 375px;
-		height: calc(100%);
 	}
 
 	.title {
@@ -19,15 +17,15 @@
 
 	.chat-window {
 		border-radius: unset;
-		height: calc(100vh);
-		min-height: unset;
+		height: 108vh;
 		border: unset;
-		padding: unset;
+		padding: 0;
 	}
 
 	.chat-window__history {
 		padding: unset;
-		margin-bottom: unset;
+		margin: 0;
+		padding: 0;
 	}
 
 	.chat-window__text-buble {
@@ -44,4 +42,5 @@
 		max-width: 8em;
 	}
 
-}*/
+}
+*/

@@ -8,6 +8,8 @@ body {
 }
 
 .content {
+	border-radius: 2em;
+	border: 1px solid #EDEDED;
 	margin: auto;
 	max-width: 700px;
 	min-width: 528px;
@@ -20,4 +22,6 @@ body {
 	font-style: normal;
 	font-weight: 700;
 	line-height: 1em;
+	margin: .3em auto;
+	max-width: 700px;
 }
