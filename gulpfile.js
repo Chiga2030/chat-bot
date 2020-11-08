@@ -52,7 +52,6 @@ gulp.task('build-styles', () => {
     gulp.src(path.src.style)
       .pipe(gulpif(process.env.SOURCEMAPS === 'switch-on', sourcemaps.init()))
       .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
         cascade: false
       }))
       .pipe(concat('style-min.css'))
