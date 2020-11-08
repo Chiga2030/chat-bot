@@ -1,7 +1,7 @@
-const sendMessage =  async (request='string') => {
+function sendMessage(request) {
 	const url = 'http://localhost:3000/request-to-bot';
 
-	let response = await fetch(url, {
+	let response = fetch(url, {
 	  method: 'POST',
 	  headers: {
 	    'Content-Type': 'application/json;charset=utf-8'
@@ -9,6 +9,7 @@ const sendMessage =  async (request='string') => {
 	  body: JSON.stringify({request})
 	});
 
-	let result = await response.json();
-	addMessage(newMessage(result.answer, false,'bot'), chatHistory)
+	response
+		.then(data => data.json())
+		.then(answer => addMessage(newMessage(answer.answer, false,'bot'), chatHistory));
 }
