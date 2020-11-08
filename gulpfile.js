@@ -71,8 +71,21 @@ gulp.task('build-fonts', () => {
 });
 
 gulp.task('copy-fonts', () => {
-  gulp.src(path.src.fonts + '*.*')
+  gulp.src(path.src.fonts + '*.*[^".css"]')
    	.pipe(gulp.dest(path.build.fonts));
+
+  gulp.src(path.src.fonts + '*.css')
+    .pipe(gulpif(process.env.SOURCEMAPS === 'switch-on', sourcemaps.init()))
+    .pipe(autoprefixer({
+      cascade: false
+    }))
+    .pipe(concat('fonts.css'))
+    .pipe(gulpif(process.env.PRODUCTION === 'switch-on', cssnano({
+       minifyFontValues: false,
+       discardUnused: false
+     })))
+    .pipe(gulpif(process.env.SOURCEMAPS === 'switch-on', sourcemaps.write()))
+    .pipe(gulp.dest(path.build.fonts));
 });
 
 /* сборка скриптов в один файл *-min.js */
@@ -110,8 +123,8 @@ gulp.task('nodemon', done => {
   });
 });
 
-gulp.task('default', ['build-html', 'build-styles', 'copy-fonts', 'build-scripts', 'build-images', 'browser-sync', 'nodemon']);
-gulp.task('build', ['build-html', 'build-styles', 'build-fonts', 'build-scripts', 'build-images']);
+gulp.task('default', ['build-html', 'build-styles', 'build-fonts', 'copy-fonts', 'build-scripts', 'build-images', 'browser-sync', 'nodemon']);
+gulp.task('build', ['build-html', 'build-styles', 'build-fonts', 'copy-fonts', 'build-scripts', 'build-images']);
 gulp.task('prod', ['build']);	//build for prod
 gulp.task('dev', ['build', 'browser-sync']);	//build for dev
 
@@ -131,6 +144,6 @@ gulp.task('browser-sync', () => {
 
 gulp.task('watch-html', ['build-html'], () => browserSync.reload());
 gulp.task('watch-styles', ['build-styles'], () => browserSync.reload());
-gulp.task('watch-fonts', ['copy-fonts'], () => browserSync.reload());
+gulp.task('watch-fonts', ['build-fonts', 'copy-fonts'], () => browserSync.reload());
 gulp.task('watch-scripts', ['build-scripts'], () => browserSync.reload());
 gulp.task('watch-images', ['build-images'], () => browserSync.reload());
