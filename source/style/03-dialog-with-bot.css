@@ -1,8 +1,8 @@
 .chat-window__history {
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	margin-bottom: .5em;
-	overflow: hidden;
+	overflow-y: hidden;
 	padding: 1em 1em 0 0;
 }
 
