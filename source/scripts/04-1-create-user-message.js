@@ -6,7 +6,6 @@ const newMessage = (text = dots, build = true, from = 'user') => {
 	const message = document.createElement('div');
 
 	message.classList.add('message');
-	message.style.order = order() - 1;
 	message.dataset.build = build;
 	message.innerHTML = userTemplate;
 
