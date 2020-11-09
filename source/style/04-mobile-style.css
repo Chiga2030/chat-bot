@@ -34,21 +34,8 @@
 	}
 
 	.chat-window__history {
-		/*display: flex;*/
-		/*flex-direction: column-reverse;*/
 		margin-bottom: .5em;
-		/*overflow: hidden;*/
 		padding: 1em 1em 0 0;
-	}
-
-	.chat-window__history:hover {
-		/*-moz-overflow-scrolling: touch;*/
-		/*-ms-overflow-scrolling: touch;*/
-		/*-o-overflow-scrolling: touch;*/
-		/*-webkit-overflow-scrolling: touch;*/
-		/*overflow-x: hidden;*/
-		/*overflow-y: scroll;*/
-		/*padding-right: .55em;*/
 	}
 
 	.message {
