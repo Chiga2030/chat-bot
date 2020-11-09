@@ -4,6 +4,8 @@
 	margin-bottom: .5em;
 	overflow-y: hidden;
 	padding: 1em 1em 0 0;
+  	scrollbar-color: #fff #282828;
+  	scrollbar-width: thin;
 }
 
 .chat-window__history:hover {
