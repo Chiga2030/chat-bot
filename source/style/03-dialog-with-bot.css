@@ -1,9 +1,11 @@
 .chat-window__history {
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	margin-bottom: .5em;
 	overflow: hidden;
 	padding: 1em 1em 0 0;
+	scrollbar-color: #fff #282828;
+	scrollbar-width: thin;
 }
 
 .chat-window__history:hover {
@@ -11,7 +13,6 @@
 	-ms-overflow-scrolling: touch;
 	-o-overflow-scrolling: touch;
 	-webkit-overflow-scrolling: touch;
-	overflow-x: hidden;
 	overflow-y: scroll;
 	padding-right: .55em;
 }
@@ -53,8 +54,8 @@
 	height: fit-content;
 	margin-left: 2em;
 	max-width: 27em;
+	overflow-wrap: anywhere;
 	padding: 1em 2em;
-	word-wrap: break-word;
 }
 
 .message__buble_user {

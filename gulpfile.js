@@ -124,7 +124,7 @@ gulp.task('nodemon', done => {
 });
 
 gulp.task('default', ['build-html', 'build-styles', 'build-fonts', 'copy-fonts', 'build-scripts', 'build-images', 'browser-sync', 'nodemon']);
-gulp.task('build', ['build-html', 'build-styles', 'build-fonts', 'copy-fonts', 'build-scripts', 'build-images']);
+gulp.task('build', ['build-html', 'build-styles', 'build-fonts', 'copy-fonts', 'build-scripts', 'build-images', 'browser-sync', 'nodemon']);
 gulp.task('prod', ['build']);	//build for prod
 gulp.task('dev', ['build', 'browser-sync']);	//build for dev
 

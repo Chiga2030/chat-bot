@@ -29,7 +29,9 @@
 	outline:none;
 	overflow-y: hidden;
 	resize: none;
+	scrollbar-color: #ccc #fff;
 	width: calc(100%);
+  	scrollbar-width: thin;
 }
 
 .chat-window__text-buble-input:hover {
