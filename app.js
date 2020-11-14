@@ -21,5 +21,7 @@ app.post("/request-to-bot", function (request, response) {
 });
 
 // начинаем прослушивать подключения
-app.listen(PORT);
+app.listen(PORT, () => {
+	console.log('server has been started');
+});
 // app.listen(3000);
