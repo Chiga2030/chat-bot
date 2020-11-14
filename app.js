@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require('cors');
 // создаем объект приложения
 const app = express();
+const PORT = process.env.PORT || 80;
 
 const bot = require('./bot-modules/bot-interface.js');
 
@@ -19,5 +20,6 @@ app.post("/request-to-bot", function (request, response) {
     	.then(answer => response.send( answer ));
 });
 
-// начинаем прослушивать подключения на 3000 порту
-app.listen(3000);
+// начинаем прослушивать подключения
+app.listen(PORT);
+// app.listen(3000);
