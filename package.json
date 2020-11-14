@@ -7,7 +7,7 @@
   "description": "test task 'Chat bot' for Beeinterns",
   "main": "./build/index.html",
   "scripts": {
-    "start": "gulp build",
+    "start": "app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
