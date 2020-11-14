@@ -24,7 +24,6 @@
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "browser-sync": "^2.26.7",
-    "cors": "^2.8.5",
     "del": "^6.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^7.0.1",
@@ -45,6 +44,7 @@
   },
   "dependencies": {
     "axios": "^0.21.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1"
   }
 }
