@@ -1,5 +1,5 @@
 function sendMessage(request) {
-	const url = `http://${location.hostname}/request-to-bot`;
+	const url = `https://${location.hostname}/request-to-bot`;
 
 	let response = fetch(url, {
 	  method: 'POST',
