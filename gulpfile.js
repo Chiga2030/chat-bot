@@ -1,10 +1,10 @@
 const path = {
 	build: {
-		html: 'build/',
-		style: 'build/style/',
-		fonts: 'build/fonts/',
-		script: 'build/js/',
-		img: 'build/img/',
+		html: 'client/',
+		style: 'client/style/',
+		fonts: 'client/fonts/',
+		script: 'client/js/',
+		img: 'client/img/',
 	},
 	src: {
 		indexHtml: 'source/index.html',
@@ -13,12 +13,13 @@ const path = {
 		fonts: 'source/fonts/',
 		script: 'source/**/*.js',
 		img: 'source/img/*',
-	}
+	},
+  clean: 'client/**',
 };
 
 const gulp = require('gulp');
 const env = require('gulp-env');				//переменные окружения
-const clean = require('gulp-clean');		//zero configuration tool
+const del = require('del');		//zero client tool
 const babel = require('gulp-babel');		//для трансшпиляции
 const concat = require('gulp-concat');	//для объединения файлов
 const uglify = require('gulp-uglify');	//для минификации js-файлов
@@ -37,6 +38,9 @@ env ({
 	file: '.env',
 	type: 'ini',
 });
+
+/* zero client */
+gulp.task('clean', () => del(path.clean));
 
 /* сборка html */
 gulp.task('build-html', () => {
@@ -108,12 +112,6 @@ gulp.task('build-images', () => {
   .pipe(gulp.dest(path.build.img))
 });
 
-/* zero configuration */
-gulp.task('clean', () => {
-	gulp.src('./build', {read: false})
-  	.pipe(clean());
-});
-
 gulp.task('nodemon', done => {
   nodemon({
     script: 'app.js'
@@ -123,25 +121,25 @@ gulp.task('nodemon', done => {
   });
 });
 
-gulp.task('default', ['build-html', 'build-styles', 'build-fonts', 'copy-fonts', 'build-scripts', 'build-images', 'browser-sync', 'nodemon']);
-gulp.task('prod', ['build-html', 'build-styles', 'build-fonts', 'copy-fonts', 'build-scripts', 'build-images']);	//build for prod
+gulp.task('default', ['build-fonts', 'copy-fonts', 'build-html', 'build-styles', 'build-scripts', 'build-images', 'browser-sync', 'nodemon']);
+gulp.task('build', ['clean', 'build-fonts', 'copy-fonts', 'build-html', 'build-styles', 'build-scripts', 'build-images']);	//build for prod
 
 gulp.task('browser-sync', () => {
 	browserSync.init({
     server: {
-    	baseDir: "./build/",
+    	baseDir: "./client/",
     },
     port: 3006,
   });
+	gulp.watch(path.src.fonts, ['watch-fonts']);
 	gulp.watch(path.src.html, ['watch-html']);
 	gulp.watch(path.src.style, ['watch-styles']);
-	gulp.watch(path.src.fonts, ['watch-fonts']);
 	gulp.watch(path.src.script, ['watch-scripts']);
 	gulp.watch(path.src.img, ['watch-images']);
 });
 
+gulp.task('watch-fonts', ['build-fonts', 'copy-fonts'], () => browserSync.reload());
 gulp.task('watch-html', ['build-html'], () => browserSync.reload());
 gulp.task('watch-styles', ['build-styles'], () => browserSync.reload());
-gulp.task('watch-fonts', ['build-fonts', 'copy-fonts'], () => browserSync.reload());
 gulp.task('watch-scripts', ['build-scripts'], () => browserSync.reload());
 gulp.task('watch-images', ['build-images'], () => browserSync.reload());
