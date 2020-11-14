@@ -3,6 +3,5 @@ upload.sh
 .cache/
 dist/
 node_modules/
-build/
 mockups-and-other/
 pixel-perfect/
