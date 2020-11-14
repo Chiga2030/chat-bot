@@ -1,7 +1,11 @@
 function sendMessage(request) {
-	const url = `https://${location.hostname}/request-to-bot`;
+	const url = () => {
+		if( location.hostname === 'localhost' ) {
+			return `${location.protocol}//${location.hostname}:3000/request-to-bot`;
+		} return `${location.href}request-to-bot`;
+	}
 
-	let response = fetch(url, {
+	let response = fetch(url(), {
 	  method: 'POST',
 	  headers: {
 	    'Content-Type': 'application/json;charset=utf-8'
