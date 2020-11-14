@@ -1,13 +1,13 @@
 // подключение express
 const express = require("express");
-const cors = require('cors');
+// const cors = require('cors');
 // создаем объект приложения
 const app = express();
 const PORT = process.env.PORT || 80;
 
 const bot = require('./bot-modules/bot-interface.js');
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json()); // for parsing application/json
 
 // определяем обработчик для маршрута "/"
