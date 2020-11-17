@@ -1,4 +1,4 @@
 function addMessage(message = '', toChat) {
-	toChat.append(message);
+	toChat.insertAdjacentHTML('beforeend', message);
 	scrollToBottom(chatHistory);
 }
