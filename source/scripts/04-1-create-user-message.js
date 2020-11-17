@@ -1,13 +1,10 @@
 const newMessage = (text = dots, build = true, from = 'user') => {
-	const userTemplate = `
+	const html = `
+		<div class='message' data-build='${build}'>
 			<div class='message__avatar message__avatar_${from}'></div>
 			<div class='message__buble message__buble_${from}'>${text}</div>
+		</div>
 	`;
-	const message = document.createElement('div');
 
-	message.classList.add('message');
-	message.dataset.build = build;
-	message.innerHTML = userTemplate;
-
-	return message;
+	return html;
 }
