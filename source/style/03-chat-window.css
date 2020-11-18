@@ -1,0 +1,13 @@
+.chat-window {
+	display: flex;
+	flex-direction: column;
+	/*justify-content: flex-end;*/
+	border: 1px solid red;
+	border-radius: 2em;
+	overflow-y: auto;
+	overflow-x: hidden;
+	color: #fff;
+	margin: auto;
+	height: 80vh;
+	width: 700px;
+}
