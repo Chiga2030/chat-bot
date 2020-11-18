@@ -1,13 +1,19 @@
 .chat-window {
+	border-radius: 2em;
+	border: 1px solid red;
+	color: #fff;
 	display: flex;
 	flex-direction: column;
-	/*justify-content: flex-end;*/
-	border: 1px solid red;
-	border-radius: 2em;
-	overflow-y: auto;
-	overflow-x: hidden;
-	color: #fff;
-	margin: auto;
 	height: 80vh;
+	justify-content: flex-end;
+	margin: auto;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	width: 700px;
+}
+
+.chat-window__wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
