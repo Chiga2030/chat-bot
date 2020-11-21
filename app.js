@@ -4,7 +4,6 @@ const cors = require('cors');
 // создаем объект приложения
 const app = express();
 const PORT = process.env.PORT || 3000;
-console.log(PORT)
 
 const bot = require('./bot-modules/bot-interface.js');
 
