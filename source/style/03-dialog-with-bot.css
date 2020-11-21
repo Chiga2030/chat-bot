@@ -1,69 +1,62 @@
 .chat-window__history {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: .5em;
-	overflow: hidden;
-	padding: 1em 1em 0 0;
-	scrollbar-color: #fff #282828;
-	scrollbar-width: thin;
-}
-
-.chat-window__history:hover {
-	-moz-overflow-scrolling: touch;
-	-ms-overflow-scrolling: touch;
-	-o-overflow-scrolling: touch;
-	-webkit-overflow-scrolling: touch;
-	overflow-y: scroll;
-	padding-right: .55em;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .5em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 1em 1em 0 0;
+  scrollbar-color: #fff #282828;
+  scrollbar-width: thin;
 }
 
 .chat-window__history::-webkit-scrollbar {
-	-webkit-appearance: none;
-	width: 7px;
+  -webkit-appearance: none;
+  width: 7px;
 }
 
 .chat-window__history::-webkit-scrollbar-thumb {
-	background-color: #fff;
-	border-radius: 8px;
+  background-color: #fff;
+  border-radius: 8px;
 }
 
 .message {
-	display: flex;
-	margin: 1.5em 0;
+  display: flex;
+  margin: 1em 0;
+  min-height: fit-content;
 }
 
 .message__avatar {
-	border-radius: 50px;
-	height: 5em;
-	max-height: 5em;
-	min-width: 5em;
+  border-radius: 50px;
+  height: 4.5em;
+  max-height: 4.5em;
+  min-width: 4.5em;
 }
 
 .message__avatar_user {
-	background: center / cover no-repeat url(../img/user-avatar.svg);
+  background: center / cover no-repeat url(../img/user-avatar.svg);
 }
 
 .message__avatar_bot {
-	background: center / cover no-repeat url(../img/bot-avatar.svg);
+  background: center / cover no-repeat url(../img/bot-avatar.svg);
 }
 
 .message__buble {
-	border-radius: 32px;
-	color: #282828;
-	font: normal normal 1em/1 "roboto";
-	height: fit-content;
-	margin-left: 2em;
-	max-width: 27em;
-	overflow-wrap: anywhere;
-	padding: 1em 2em;
+  border-radius: 32px;
+  color: #282828;
+  font: normal normal 1em/1 "roboto";
+  height: fit-content;
+  margin-left: 2em;
+  overflow-wrap: anywhere;
+  padding: 1em 2em;
+  width: max-content;
 }
 
 .message__buble_user {
-	background: #F9C35B;
+  background: #F9C35B;
 }
 
 .message__buble_bot {
-	background: #F1F0F0;
+  background: #F1F0F0;
 }
 
 .message__buble_user_has-tail {

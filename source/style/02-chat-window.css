@@ -1,74 +1,74 @@
 .chat-window {
-	color: #fff;
-	display: flex;
-	flex-direction: column;
-	height: calc(100vh - 56px - 164px);
-	justify-content: flex-end;
-	padding: 0 2.5em;
-	position: relative;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px - 164px - 2.5em);
+  justify-content: flex-end;
+  padding: 0 2.5em;
+  position: relative;
 }
 
 .chat-window__text-buble {
-	align-items: center;
-	background: #fff;
-	border-radius: 2em;
-	border: 0;
-	box-sizing: border-box;
-	display: flex;
-	height: 4em;
-	margin: 0 2.5em 2.5em;
-	padding: 0 2em;
-	text-align: left;
+  align-items: center;
+  background: #fff;
+  border-radius: 2em;
+  border: 0;
+  box-sizing: border-box;
+  display: flex;
+  height: 4em;
+  margin: 0 2.5em 2.5em;
+  padding: 0 2em;
+  text-align: left;
 }
 
 .chat-window__text-buble-input {
-	border: 0;
-	color: #000;
-	font: normal normal 1.5em/1.5 "robotoMono";
-	height: 2.5em;
-	outline:none;
-	overflow-y: hidden;
-	resize: none;
-	scrollbar-color: #ccc #fff;
-	width: calc(100%);
-  	scrollbar-width: thin;
+  border: 0;
+  color: #000;
+  font: normal normal 1.5em/1.5 "robotoMono";
+  height: 2.5em;
+  outline:none;
+  overflow-y: hidden;
+  resize: none;
+  scrollbar-color: #ccc #fff;
+  width: calc(100%);
+  scrollbar-width: thin;
 }
 
 .chat-window__text-buble-input:hover {
-	-moz-overflow-scrolling: touch;
-	-ms-overflow-scrolling: touch;
-	-o-overflow-scrolling: touch;
-	-webkit-overflow-scrolling: touch;
-	overflow-x: hidden;
-	overflow-y: auto;
+  -moz-overflow-scrolling: touch;
+  -ms-overflow-scrolling: touch;
+  -o-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .chat-window__text-buble-input::-webkit-scrollbar {
-	-webkit-appearance: none;
-	width: 7px;
+  -webkit-appearance: none;
+  width: 7px;
 }
 
 .chat-window__text-buble-input::-webkit-scrollbar-thumb {
-	background-color: rgba(40, 40, 40, .5);
-	border-radius: 8px;
+  background-color: rgba(40, 40, 40, .5);
+  border-radius: 8px;
 }
 
 .chat-window__text-buble-input::placeholder {
-	text-align: center;
+  text-align: center;
 }
 
 .chat-window__text-buble-button {
-	background: top / cover no-repeat url(../img/arrows.svg);
-	border: 0;
-	cursor: pointer;
-	margin-left: 8px;
-	min-height: 35px;
-	min-width: 40px;
-	outline:none;
-	transition: background-position .2s;
+  background: top / cover no-repeat url(../img/arrows.svg);
+  border: 0;
+  cursor: pointer;
+  margin-left: 8px;
+  min-height: 35px;
+  min-width: 40px;
+  outline:none;
+  transition: background-position .2s;
 }
 
 .chat-window__text-buble-button:disabled {
-	background-position: bottom;
-	cursor: not-allowed;
+  background-position: bottom;
+  cursor: not-allowed;
 }

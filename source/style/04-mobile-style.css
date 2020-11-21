@@ -1,7 +1,6 @@
 @media (max-width: 425px) {
 
-	html,
-	body {
+	.body {
 		margin: 0;
 	}
 
@@ -9,21 +8,23 @@
 		border-radius: 0;
 		border: none;
 		bottom: 0;
-		max-width: 425px;
 		min-width: unset;
-		position: relative;
 	}
 
 	.title {
 		font-size: 2em;
-		margin: .3em .5em;
+		margin: 0;
 		max-width: 425px;
 	}
 
 	.chat-window {
-		height: calc(100vh - 32px - 64px - 19px);
-		margin-bottom: -8px;
+		height: calc(100vh - 32px - 72px - .7em);
 		padding: 0 1em;
+	}
+
+	.message__buble {
+		max-width: calc(100vw - 4.5em - 9em);
+		overflow-wrap: break-word;
 	}
 
 	.chat-window__text-buble {
@@ -36,10 +37,6 @@
 	.chat-window__history {
 		margin-bottom: .5em;
 		padding: 1em 1em 0 0;
-	}
-
-	.message {
-		margin: 1em 0;
 	}
 
 }
