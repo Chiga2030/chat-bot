@@ -2,7 +2,8 @@
 
 ## Как использовать
 
-https://chat-bot-taa.herokuapp.com/
+[Посмотреть готовый проект](https://chat-bot-taa.herokuapp.com/)
+[Макет в Figma](https://www.figma.com/file/Ztm9QXAkGD5NSrOaleuCTz/chatbot?node-id=0%3A1)
 
 или
 
