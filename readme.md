@@ -2,7 +2,7 @@
 
 ## Как использовать
 
-[Посмотреть готовый проект](https://chat-bot-taa.herokuapp.com/)
+[Посмотреть готовый проект](https://chat-bot-taa.herokuapp.com/) (сейчас Heroku в России не работает, так что `npm install`)
 
 [Макет в Figma](https://www.figma.com/file/Ztm9QXAkGD5NSrOaleuCTz/chatbot?node-id=0%3A1)
 
