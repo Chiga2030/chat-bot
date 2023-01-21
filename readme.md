@@ -9,11 +9,10 @@
 или
 
 ```
-git clone git@github.com:Chiga2030/chat-bot.git
-
+nvm i v11
+npm install --global gulp-cli
 npm i
-
-gulp
+npx gulp
 ```
 
 ## Команды для чат-бота:
